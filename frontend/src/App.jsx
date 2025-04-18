@@ -1,11 +1,23 @@
-import { Typography } from '@mui/material';
+import { Navigate, Route, Routes } from "react-router-dom";
+import { SignIn } from "./pages"
 
 export default function App() {
 	return (
-		<>
-			<Typography color='primary'>
-				TEST2
-			</Typography>
-		</>
-	)
+		<Routes>
+            <Route
+                path="/sign-in"
+                element={<SignIn />}
+            />
+
+			<Route
+                path="/sign-up"
+                element={<SignIn />}
+            />
+
+			<Route
+                path="*"
+                element={<SignIn />}
+            />
+        </Routes>
+	);
 }
