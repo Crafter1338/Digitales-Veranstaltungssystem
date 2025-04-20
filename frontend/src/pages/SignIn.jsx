@@ -18,8 +18,8 @@ export default function () {
 
     return (
         <>
-            <Box sx={{ display:'flex', height:1, justifyContent:'center', alignItems:'center', p:2 }}>
-                <Box sx={{ display:'flex', flexDirection:'column', gap: 2, width: 1, maxWidth: 450}}>
+            <Box sx={{ display:'flex', height:1, justifyContent:'center', px: 2, pt: 4 }}>
+                <Box sx={{ display:'flex', flexDirection:'column', gap: 2, width: 1, maxWidth: 500}}>
                     <Card>
                         <Typography level="h3">
                             Digitales Veranstaltungssystem
