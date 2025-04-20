@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { SignIn } from "./pages"
+import { SignIn, SignUp } from "./pages"
 import { ContextStructure } from "./contexts"
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
 
                 <Route
                     path="/sign-up"
-                    element={<SignIn />}
+                    element={<SignUp />}
                 />
 
                 <Route
