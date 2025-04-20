@@ -10,7 +10,7 @@ function capitalizeFirstLetter(val) { //später in helpers packen
 }
 
 export default function () {
-    const [progress, setProgress] = useState(3)
+    const [progress, setProgress] = useState(1)
     const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
     const [name, setName] = useState('')
@@ -95,9 +95,7 @@ export default function () {
                             Neuen Account anlegen
                         </Typography>
 
-                        <LinearProgress determinate value={progress*100/3}> 
-
-                        </LinearProgress>
+                        <LinearProgress determinate value={progress*100/3} sx={{ transition: 'width 0.5s ease-in-out' }} /> 
                     </Card>
 
                     {progress == 1 && <Card>
@@ -268,14 +266,16 @@ export default function () {
                                 <Input variant="soft" readOnly value={color}/>
                             </FormControl>
 
-                            <Box sx={{ display:'flex', gap:1, flexDirection:'row', alignItems:'center' }}>
-                                <Typography sx={{ flex:1 }}level="body-sm">Ich akzeptiere die <Link href="/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung</Link> *</Typography>
-                                <Checkbox checked={checked[1]} onChange={(e) => {setChecked((last) => ({...last, 1:Boolean(e.target.checked)}))}}/>
-                            </Box>
+                            <Box sx={{ display:'flex', gap:0.75, flexDirection:'column' }}>
+                                <Box sx={{ display:'flex', gap:1, flexDirection:'row', alignItems:'center' }}>
+                                    <Typography sx={{ flex:1 }}level="body-sm">Ich akzeptiere die <Link href="/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung</Link> *</Typography>
+                                    <Checkbox checked={checked[1]} onChange={(e) => {setChecked((last) => ({...last, 1:Boolean(e.target.checked)}))}}/>
+                                </Box>
 
-                            <Box sx={{ display:'flex', gap:1, flexDirection:'row', alignItems:'center' }}>
-                                <Typography sx={{ flex:1 }} level="body-sm">Die oben genannten Angaben sind korrekt *</Typography>
-                                <Checkbox checked={checked[2]} onChange={(e) => {setChecked((last) => ({...last, 2:Boolean(e.target.checked)}))}}/>
+                                <Box sx={{ display:'flex', gap:1, flexDirection:'row', alignItems:'center' }}>
+                                    <Typography sx={{ flex:1 }} level="body-sm">Die oben genannten Angaben sind korrekt *</Typography>
+                                    <Checkbox checked={checked[2]} onChange={(e) => {setChecked((last) => ({...last, 2:Boolean(e.target.checked)}))}}/>
+                                </Box>
                             </Box>
 
                             <Box sx={{ display:'flex', gap: 1, flexDirection:'row' }}>
