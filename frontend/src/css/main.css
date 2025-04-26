@@ -1,0 +1,10 @@
+body, html {
+    font-family: Inter;
+    
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+    display: none;
+}
