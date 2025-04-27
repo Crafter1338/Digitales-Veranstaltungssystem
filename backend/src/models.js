@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 export const AccountModel = mongoose.model('User', new mongoose.Schema({
-    username    : { type: String, unique: true, required: true },
-    email       : { 
+    username : { type: String, unique: true, required: true },
+    email    : { 
         type: String,
         validate: {
             validator: async function(value) {
@@ -13,11 +13,11 @@ export const AccountModel = mongoose.model('User', new mongoose.Schema({
             message: 'email must be unique'
         }
     },
-    password    : { type: String, required: true },
-    color       : { type: String, required: true },
+    password : { type: String, required: true },
+    color    : { type: String, required: true },
 
-    uuid        : { type: String, unique: true, required: true },
+    uuid     : { type: String, unique: true, required: true },
 
-    forename    : { type: String, required: true },
-    surname     : { type: String, required: true },
+    forename : { type: String, required: true },
+    surname  : { type: String, required: true },
 }));

@@ -1,4 +1,29 @@
-import express from 'express';
+// Imports: //////////////////////
+import express                    from 'express'     ;
+import http                       from 'http'        ;
+import { Server as SocketServer } from 'socket.io'   ;
+import cors                       from 'cors'        ;
+//
+import mongoose                   from 'mongoose'    ;
+import redis                      from 'redis'       ;
+//
+import { v4 as uuid }             from 'uuid'        ;
+import jwt                        from 'jsonwebtoken';
+import bcrypt                     from 'bcrypt'      ;
+//////////////////////////////////
+
+// Setup: ////////////////////////
+const app          = express();
+const httpServer   = http.createServer(app);
+const socketServer = new SocketServer(httpServer, {cors: { origin: '*' }});
+//
+app.use(express.json())
+app.use(cors())
+//////////////////////////////////
+
+
+
+/*import express from 'express';
 import mongoose from 'mongoose';
 import http from 'http'
 import { Server as SocketServer } from 'socket.io';
@@ -89,3 +114,5 @@ app.get('/api/job-status/:id', async (req, res) => {
 server.listen(3000, () => {
     console.log('Server started!')
 }) 
+
+*/
