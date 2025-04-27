@@ -15,6 +15,3 @@ COPY . .
 
 # Expose the port your app uses
 EXPOSE 3000
-
-# Use nodemon to start the app in development mode
-CMD ["nodemon", "--legacy-watch", "index.js"]

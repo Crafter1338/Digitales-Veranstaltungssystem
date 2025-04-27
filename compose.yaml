@@ -1,6 +1,7 @@
 services:
   backend:
     build: ./backend
+    command: ["nodemon", "--legacy-watch", "src/index.js"]
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -11,6 +12,17 @@ services:
     depends_on:
       - mongodb
       - redis
+
+  worker:
+    build: ./backend
+    command: ["nodemon", "--legacy-watch", "src/worker.js"]
+    depends_on:
+      - backend
+      - mongodb
+      - redis
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
   
   mongodb:
     image: mongo:6

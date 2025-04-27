@@ -10,8 +10,21 @@ export function SignUpProvider({ children }) {
     const [color    , setColor   ] = useState('');
     const [password , setPassword] = useState('');
 
-    const performSignUp = () => {
+    const performSignUp = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/sign-up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ forename, surname, username: surname.toLowerCase() + '.' + forename.toLowerCase(), email, color, password })
+            });
 
+            const data = await response.json();
+            console.log('Response:', data);
+        } catch (error) {
+            console.error('SignIn error:', error);
+        }
     }
 
     return (

@@ -8,6 +8,7 @@ import { useViewport } from '../contexts/Viewport';
 import { useSignIn } from '../contexts/SignIn';
 import LegalNotice from '../components/LegalNotice';
 import { useState } from 'react';
+import { isPasswordValid } from '../utils/Text'
 
 export default function() {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -62,7 +63,7 @@ export default function() {
                                     <Typography>Angemeldet bleiben</Typography>
                                 </Box>
 
-                                <Button variant='soft' onClick={performSignIn} disabled={identifier.length == 0 || password.length < 8}>
+                                <Button variant='soft' onClick={performSignIn} disabled={identifier.length == 0 || !isPasswordValid(password)}>
                                     <Typography level='body-md'>Anmelden</Typography>
                                 </Button>
 
